@@ -1,3 +1,4 @@
+update_ec2.sh
 #!/bin/bash
 
 # Update the package list and upgrade installed packages
@@ -26,3 +27,24 @@ else
 fi
 
 echo "System update completed."
+
+
+
+
+
+
+
+Run the following command to make the script executable:
+chmod +x update_ec2.sh
+
+
+
+To ensure the script runs automatically after login, you can modify the .bashrc (for Ubuntu/Debian) or .bash_profile (for RedHat/CentOS) file of the user you use to login.
+nano ~/.bashrc  # For Ubuntu/Debian systems
+
+
+
+At the end of the file, add the following line to execute the update script automatically:
+~/update_ec2.sh
+
+        
