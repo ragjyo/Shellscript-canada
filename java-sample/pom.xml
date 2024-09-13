@@ -51,8 +51,8 @@
         <artifactId>maven-deploy-plugin</artifactId>
         <version>2.8.2</version>
         <configuration>
-          <altReleaseDeploymentRepository>central::default::https://swhizz1.jfrog.io/artifactory/jyothi-swhizz</altReleaseDeploymentRepository>
-          <altSnapshotDeploymentRepository>snapshots::default::https://swhizz1.jfrog.io/artifactory/jyothi-swhizz</altSnapshotDeploymentRepository>
+          <altReleaseDeploymentRepository>central::default::https://swhizz1.jfrog.io/artifactory/Docker-java-releases/</altReleaseDeploymentRepository>
+          <altSnapshotDeploymentRepository>snapshots::default::https://swhizz1.jfrog.io/artifactory/Docker-java-snapshot/</altSnapshotDeploymentRepository>
         </configuration>
        </plugin>
 
