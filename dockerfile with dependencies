@@ -1,0 +1,27 @@
+FROM ubuntu
+
+# Set environment variables
+ENV JAVA_VERSION=21
+ENV MAVEN_VERSION=3.9.4
+ENV MAVEN_HOME=/usr/local/maven
+ENV PATH=$MAVEN_HOME/bin:$PATH
+
+# Install necessary packages and dependencies for building
+RUN apt-get update && apt-get install -y \
+    curl \
+    gnupg \
+    lsb-release \
+    git \
+    openjdk-21-jdk \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Maven
+RUN curl -o /tmp/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+    -L https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+    && tar -xzvf /tmp/apache-maven-${MAVEN_VERSION}-bin.tar.gz -C /usr/local \
+    && mv /usr/local/apache-maven-${MAVEN_VERSION} $MAVEN_HOME \
+    && rm /tmp/apache-maven-${MAVEN_VERSION}-bin.tar.gz
+
+# Set the working directory for the build process
+WORKDIR /app
